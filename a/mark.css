@@ -1,0 +1,167 @@
+/* VARIANT A — "spirit of"
+   Bow-Wow's austerity, brought forward: the same narrow left column, small
+   letter-spaced type and year-indexed list, but it reflows on a phone and the
+   type stays legible. Typographic restraint, one soft accent, nothing else. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --ink: #141414;
+  --muted: #8c8c8c;
+  --rule: #e4e4e4;
+  --accent: #c8402f;
+  --measure: 760px;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font: 13px/1.75 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.045em;
+}
+
+.sheet {
+  max-width: var(--measure);
+  margin: 0;
+  padding: 44px 28px 120px;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* --- masthead ---------------------------------------------------------- */
+
+.masthead { margin-bottom: 54px; }
+
+.wordmark {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+}
+.wordmark:hover { text-decoration: none; }
+
+.topnav a { margin-right: 20px; color: var(--accent); }
+.topnav .lang { color: var(--muted); }
+
+/* --- front door -------------------------------------------------------- */
+
+.front { padding-top: 8px; }
+.logotype { width: 132px; height: auto; display: block; margin-bottom: 26px; }
+.whois { margin: 0 0 40px; color: var(--muted); }
+
+.pairs { border-collapse: collapse; }
+.pairs th {
+  text-align: left;
+  font-weight: 400;
+  color: var(--muted);
+  padding: 0 46px 12px 0;
+}
+.pairs td { padding: 0 46px 6px 0; }
+.pairs a { color: var(--accent); }
+
+/* --- headings ---------------------------------------------------------- */
+
+h1 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 22px;
+}
+
+/* --- filter row -------------------------------------------------------- */
+
+.filter { margin: 0 0 34px; }
+.filter a { color: var(--accent); }
+.filter a.on { color: var(--ink); text-decoration: underline; }
+.filter span { color: var(--rule); margin: 0 2px; }
+
+/* --- works index ------------------------------------------------------- */
+
+ol.works { list-style: none; margin: 0; padding: 0; }
+
+li.work {
+  display: flex;
+  gap: 18px;
+  padding: 0 0 34px;
+}
+
+.year { flex: 0 0 92px; color: var(--muted); }
+.entry { flex: 1 1 auto; min-width: 0; }
+
+.line a { border-bottom: 1px solid transparent; }
+.line a:hover { text-decoration: none; border-bottom-color: currentColor; }
+
+.detail { color: var(--accent); }
+.unlinked { color: var(--muted); }
+
+.meta {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+.meta em { font-style: normal; }
+.wip { color: #bdbdbd; }
+
+.thumb {
+  display: block;
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 12px;
+}
+
+/* --- project page ------------------------------------------------------ */
+
+.crumb { margin: 0 0 30px; color: var(--muted); }
+.crumb a { color: var(--muted); }
+
+.subhead { margin: -14px 0 28px; color: var(--muted); }
+
+.body { max-width: 34em; margin: 0 0 18px; }
+.body a { color: var(--accent); }
+.credit { color: var(--muted); margin: 0 0 18px; }
+.address { color: var(--muted); }
+
+.plates { margin-top: 40px; }
+.plates figure { margin: 0 0 26px; }
+.plates img { display: block; width: 100%; height: auto; }
+
+/* --- contact table ----------------------------------------------------- */
+
+.contact { border-collapse: collapse; margin: 26px 0; }
+.contact td { padding: 0 34px 4px 0; vertical-align: top; }
+.contact td:first-child { color: var(--muted); }
+.contact a { color: var(--accent); }
+
+/* --- footer ------------------------------------------------------------ */
+
+.foot {
+  margin-top: 80px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* --- phone ------------------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .sheet { padding: 32px 20px 80px; }
+  .masthead { margin-bottom: 38px; }
+  li.work { display: block; padding-bottom: 30px; }
+  .year { display: block; margin-bottom: 2px; }
+  .thumb { width: 100%; }
+  .pairs th, .pairs td { padding-right: 30px; }
+}
+
+/* front door has no masthead — the language pairs are the navigation */
+.home .masthead { display: none; }
+
+/* cv reuses the works list; its entries are prose, not links */
+.cv .line { display: block; }
+.cv .year { color: inherit; }
